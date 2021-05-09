@@ -11,8 +11,8 @@
 </template>
 
 <script>
-  import Nav from "./components/Nav.vue"
-  import Home from "./views/Home.vue"
+  import Nav from "./components/Nav.vue";
+  import Home from "./views/Home.vue";
 
   export default {
     name: "App",
@@ -45,6 +45,7 @@
     background: #F8F8F7;
     padding-top: 1.875rem;
     height: 100vh;
+    overflow: hidden;
   }
 
   .home-container {
