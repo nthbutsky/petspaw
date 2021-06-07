@@ -1,35 +1,32 @@
 <template>
-  <div class="container">
+  <div class="breeds__container">
     <Search />
     <div class="breeds-bg">
-      <div class="breeds-nav__container">
-        <button
-          class="back-btn"
-          type="button"
-          @click="$router.push('/')"
-        ></button>
-        <div class="breeds-label">BREEDS</div>
-        <select class="select-all-breeds" v-model="selected_breed">
-          <option value="">All breeds</option>
-          <option v-for="breeds in all_breeds" :key="breeds.name">
-            {{ breeds.name }}
-          </option>
-        </select>
-        <select class="items-limit" name="" id="">
-          <option value="">Limit:</option>
-        </select>
-        <button
-          class="sort-a-z"
-          type="button"
-          @click="$router.push('/')"
-        ></button>
-        <button
-          class="sort-z-a"
-          type="button"
-          @click="$router.push('/')"
-        ></button>
-      </div>
-
+      <button
+        class="back-btn"
+        type="button"
+        @click="$router.push('/')"
+      ></button>
+      <div class="breeds-label">BREEDS</div>
+      <select class="select-all-breeds" v-model="selected_breed">
+        <option value="">All breeds</option>
+        <option v-for="breeds in all_breeds" :key="breeds.name">
+          {{ breeds.name }}
+        </option>
+      </select>
+      <select class="items-limit" name="" id="">
+        <option value="">Limit:</option>
+      </select>
+      <button
+        class="sort-a-z"
+        type="button"
+        @click="$router.push('/')"
+      ></button>
+      <button
+        class="sort-z-a"
+        type="button"
+        @click="$router.push('/')"
+      ></button>
       <div class="breeds-grid__container">
         <div
           class="photo-grid"
@@ -37,6 +34,7 @@
           :key="pics.image.url"
           :alt="pics.image.url"
           :style="{ 'background-image': 'url(' + pics.image.url + ')' }"
+          @CustomEventInputChanged="passSearchResults"
         ></div>
       </div>
     </div>
@@ -47,7 +45,7 @@
 import Search from "../components/Search.vue";
 
 export default {
-  name: "Voting",
+  name: "Breeds",
   components: {
     Search,
   },
@@ -68,17 +66,25 @@ export default {
       .then((data) => (this.all_breeds = data))
       .catch((err) => console.log(err.message));
   },
+  methods: {
+    passSearchResults(data) {
+      this.all_breeds = data;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .breeds-bg {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   width: 42.5rem;
   height: 48.875rem;
   background: #ffffff;
   border-radius: 1.25rem;
   overflow: scroll;
-  padding: 0.625rem 0.625rem 1rem 0.625rem;
+  /* padding: 0.625rem 0.625rem 1rem 0.625rem; */
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
@@ -87,29 +93,30 @@ export default {
 }
 
 .back-btn {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 2.5rem;
   height: 2.5rem;
-  margin: 0.625rem 0.625rem 1.25rem 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 1.25rem;
   padding: 0.625rem;
   border-radius: 0.625rem;
   border: transparent;
-  background: #fbe0dc url("../assets/back-20.png") no-repeat center;
   transition: background 0.5s;
+  background: #fbe0dc url("../assets/back-20.png") no-repeat center;
 
   &:hover {
     background: #ff868e url("../assets/back-white-20.png") no-repeat center;
   }
 }
-
 .breeds-label {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 9.125rem;
   height: 2.5rem;
-  margin-top: 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 0;
   background-color: #ff868e;
   color: #ffffff;
-  padding: 0.3125rem;
+  padding: 0.3125rem 1.875rem;
   text-align: center;
   border-radius: 0.625rem;
   letter-spacing: 0.125rem;
@@ -117,10 +124,12 @@ export default {
 }
 
 .select-all-breeds {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 14.125rem;
   height: 2.5rem;
   margin: 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 0;
   padding: 0 0 0 0.625rem;
   border-radius: 0.625rem;
   border: transparent;
@@ -145,11 +154,11 @@ export default {
 }
 
 .items-limit {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 6.3125rem;
   height: 2.5rem;
-  margin-top: 0.625rem;
-  margin-right: 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 0;
   padding: 0 0 0 0.625rem;
   border-radius: 0.625rem;
   border: transparent;
@@ -174,11 +183,11 @@ export default {
 }
 
 .sort-a-z {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 2.5rem;
   height: 2.5rem;
-  margin-top: 0.625rem;
-  margin-right: 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 0;
   padding: 0.625rem;
   border-radius: 0.625rem;
   border: transparent;
@@ -196,11 +205,11 @@ export default {
 }
 
 .sort-z-a {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 2.5rem;
   height: 2.5rem;
-  margin-top: 0.625rem;
-  margin-right: 0.625rem;
+  margin: 1.25rem 0.625rem 0.625rem 0;
   padding: 0.625rem;
   border-radius: 0.625rem;
   border: transparent;
@@ -218,16 +227,22 @@ export default {
   }
 }
 
+.breeds-grid__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .photo-grid {
-  height: 140px;
-  width: 30%;
+  height: 8.75rem;
+  width: 200px;
   border-radius: 1.25rem;
-  margin: 0.625rem;
+  margin: 10px;
   background-size: cover;
   background-repeat: no-repeat;
 
   &:hover {
-    background-color: rgba(255, 134, 142, 0.6);
+    background-image: rgba(255, 134, 142, 0.6);
   }
 }
 
@@ -239,12 +254,9 @@ export default {
   width: 25rem;
 }
 
-.breeds-grid__container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.breeds-nav__container {
-  display: flex;
+@media (min-width: 500px) {
+  .app__container {
+    display: none;
+  }
 }
 </style>

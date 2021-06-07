@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="voting__container">
     <Search />
     <div class="voting-bg">
       <button
@@ -8,18 +8,19 @@
         @click="$router.push('/')"
       ></button>
       <div class="voting-label">VOTING</div>
-      <img
+      <div
         class="image"
         v-for="image in random_image"
         :key="image.url"
-        :src="image.url"
-      />
-      <div class="btn-container">
+        :alt="image.url"
+        :style="{ 'background-image': 'url(' + image.url + ')' }"
+      ></div>
+      <div class="btn__container">
         <div class="btn likes"></div>
         <div class="btn favs"></div>
         <div class="btn dislikes"></div>
       </div>
-      <div class="action-log-container">
+      <div class="action-log__container">
         <div class="log"></div>
         <div class="log"></div>
         <div class="log"></div>
@@ -58,6 +59,9 @@ export default {
 
 <style scoped lang="scss">
 .voting-bg {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   width: 42.5rem;
   height: 48.875rem;
   background: #ffffff;
@@ -65,7 +69,8 @@ export default {
 }
 
 .back-btn {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 2.5rem;
   height: 2.5rem;
   margin: 1.25rem 0.625rem 1.25rem 1.25rem;
@@ -81,13 +86,14 @@ export default {
 }
 
 .voting-label {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 9.125rem;
   height: 2.5rem;
-  margin-top: 1.25rem;
+  margin: 1.25rem 1.25rem 1.25rem 0;
   background-color: #ff868e;
   color: #ffffff;
-  padding: 0.3125rem;
+  padding: 0.3125rem 1.875rem;
   text-align: center;
   border-radius: 0.625rem;
   letter-spacing: 0.125rem;
@@ -95,18 +101,19 @@ export default {
 }
 
 .image {
+  display: flex;
   width: 40rem;
   height: 22.5rem;
   border-radius: 1.25rem;
   margin: 0 1.25rem 0 1.25rem;
-  background: no-repeat center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.btn-container {
-  display: inline-block;
+.btn__container {
   width: 15rem;
   height: 5rem;
-  margin-top: -2.75rem;
+  margin-top: -2.5rem;
   margin-left: 13.25rem;
   background: #fff;
   border-radius: 1.25rem;
@@ -160,12 +167,8 @@ export default {
   }
 }
 
-.action-log-container {
-  margin: 0 0 1.25rem 0;
-}
-
 .log {
-  margin: 0.625rem 1.25rem;
+  margin: 10px 20px;
   border-radius: 0.625rem;
   width: 40rem;
   height: 3.75rem;

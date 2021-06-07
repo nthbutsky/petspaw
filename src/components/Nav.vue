@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="nav__container">
     <a class="logo-link" href="/">
       <img class="logo" alt="PetsPaw Logo" src="../assets/logo.png" href="/" />
     </a>
@@ -8,28 +8,19 @@
     <p class="welcome-line">Welcome to MSI 2021 Front-end test</p>
     <p class="start-line">Lets start using The Dogs API</p>
 
-    <div class="nav-container">
-      <img
-        class="voting-icon"
-        src="../assets/vote-table.png"
-        alt="Voting Icon"
-      />
-      <img
-        class="breeds-icon"
-        src="../assets/pet-breeds.png"
-        alt="Breeds Icon"
-      />
-      <img
-        class="gallery-icon"
-        src="../assets/images-search.png"
-        alt="Gallery Icon"
-      />
-
-      <router-link to="/voting" class="voting-btn nav-btn">VOTING</router-link>
-      <router-link to="/breeds" class="breeds-btn nav-btn">BREEDS</router-link>
-      <router-link to="/gallery" class="gallery-btn nav-btn"
-        >GALLERY</router-link
-      >
+    <div class="nav-btn__container">
+      <router-link to="/voting" class="voting-link-btn">
+        <div class="voting-icon"></div>
+        <div class="voting-btn nav-btn">VOTING</div>
+      </router-link>
+      <router-link to="/breeds" class="breeds-link-btn">
+        <div class="breeds-icon"></div>
+        <div class="breeds-btn nav-btn">BREEDS</div>
+      </router-link>
+      <router-link to="/gallery" class="gallery-link-btn">
+        <div class="gallery-icon"></div>
+        <div class="gallery-btn nav-btn">GALLERY</div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -38,9 +29,14 @@
 </script>
 
 <style scoped lang="scss">
-.container {
+a {
+  text-decoration: none;
+}
+
+.nav__container {
   width: 28.125rem;
 }
+
 .logo,
 .logo-link {
   width: 6.625rem;
@@ -80,11 +76,20 @@ h1 {
   color: #1d1d1d;
 }
 
+.nav-btn__container {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
 .voting-icon {
-  background: #b4b7ff;
+  height: 12.375rem;
+  background: #b4b7ff url("../assets/vote-table.png") no-repeat center;
   border: 0.25rem solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   transition: border 0.5s;
+  margin-bottom: 0.625rem;
 
   &:hover {
     border: 0.25rem solid #fff;
@@ -96,10 +101,12 @@ h1 {
 }
 
 .breeds-icon {
-  background: #97eab9;
+  height: 12.375rem;
+  background: #97eab9 url("../assets/pet-breeds.png") no-repeat center;
   border: 0.25rem solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   transition: border 0.5s;
+  margin-bottom: 0.625rem;
 
   &:hover {
     border: 0.25rem solid #fff;
@@ -111,10 +118,12 @@ h1 {
 }
 
 .gallery-icon {
-  background: #ffd280;
+  height: 12.375rem;
+  background: #ffd280 url("../assets/images-search.png") no-repeat center;
   border: 0.25rem solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   transition: border 0.5s;
+  margin-bottom: 0.625rem;
 
   &:hover {
     border: 0.25rem solid #fff;
@@ -123,18 +132,6 @@ h1 {
       border: 0.25rem solid #fbe0dc;
     }
   }
-}
-
-.nav-container {
-  margin-top: 1.25rem;
-  width: 27.875rem;
-  display: grid;
-  grid-template-columns: 8.625rem 8.625rem 8.625rem;
-  grid-template-rows: 12.375rem 2.25rem;
-  column-gap: 1rem;
-  row-gap: 0.625rem;
-  align-items: stretch;
-  justify-items: stretch;
 }
 
 .nav-btn {
@@ -163,33 +160,90 @@ h1 {
   }
 }
 
-.voting-btn:hover ~ .voting-icon {
+.voting-icon:hover + .voting-btn {
+  background: #fbe0dc;
+}
+
+.voting-icon:active + .voting-btn {
+  background: #ff868e;
+  color: #fff;
+}
+
+.voting-link-btn:hover .voting-icon {
   border: 0.25rem solid #fff;
 }
 
-.voting-btn:active ~ .voting-icon {
+.voting-link-btn:active .voting-icon {
   border: 0.25rem solid #fbe0dc;
 }
 
-.breeds-btn:hover ~ .breeds-icon {
+.breeds-icon:hover + .breeds-btn {
+  background: #fbe0dc;
+}
+
+.breeds-icon:active + .breeds-btn {
+  background: #ff868e;
+  color: #fff;
+}
+
+.breeds-link-btn:hover .breeds-icon {
   border: 0.25rem solid #fff;
 }
 
-.breeds-btn:active ~ .breeds-icon {
+.breeds-link-btn:active .breeds-icon {
   border: 0.25rem solid #fbe0dc;
 }
 
-.gallery-btn:hover ~ .gallery-icon {
+.gallery-icon:hover + .gallery-btn {
+  background: #fbe0dc;
+}
+
+.gallery-icon:active + .gallery-btn {
+  background: #ff868e;
+  color: #fff;
+}
+
+.gallery-link-btn:hover .gallery-icon {
   border: 0.25rem solid #fff;
 }
 
-.gallery-btn:active ~ .gallery-icon {
+.gallery-link-btn:active .gallery-icon {
   border: 0.25rem solid #fbe0dc;
 }
 
-//  @media (max-width: 1440px) {
-//   .container {
-//     display: none;
-//   }
-// }
+@media (max-width: 1440px) {
+  .nav-btn__container {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  .nav-btn__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo,
+  h1,
+  p {
+    margin-left: 7.5rem;
+  }
+
+  a {
+    margin-bottom: 0.625rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  .welcome-line {
+    font-size: 1rem;
+  }
+
+  .start-line {
+    margin-top: 2.125rem;
+    font-size: 1rem;
+  }
+}
 </style>

@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
+  <div class="search-bar__container">
     <input
       type="text"
       class="search-bar"
       placeholder="Search for breeds by name"
+      v-model="query"
+      @keyup.enter="searchBreed()"
+      @change="emitEventChanged"
     />
     <div class="search-icon"></div>
     <a href="#" class="icon like"></a>
@@ -11,6 +14,33 @@
     <a href="#" class="icon dislike"></a>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      breed_searched: [],
+      query: "",
+    };
+  },
+  methods: {
+    searchBreed() {
+      fetch(`https://api.thedogapi.com/v1/breeds/search?q=${this.query}`, {
+        method: "GET",
+        headers: {
+          "X-Api-Key": "890863bc-4e50-406f-8125-708078cc84d3",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => (this.all_breeds = data))
+        .catch((err) => console.log(err.message));
+    },
+    emitEventChanged() {
+      this.$emit("CustomEventInputChanged", this.all_breeds);
+    },
+  },
+};
+</script>
 
 <style scoped lang="scss">
 .search-bar {
