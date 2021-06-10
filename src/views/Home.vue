@@ -1,13 +1,11 @@
 <template>
-  <div class="home__container">
-    <div v-show="homeShow()">
-      <div class="home-background-box"></div>
-      <img
-        class="home-girl-image"
-        src="../assets/girl-and-pet.png"
-        alt="Girl and Dog Image"
-      />
-    </div>
+  <div class="home__container" v-if="showHome()">
+    <div class="home-background-box"></div>
+    <img
+      class="home-girl-image"
+      src="../assets/girl-and-pet.png"
+      alt="Girl and Dog Image"
+    />
   </div>
 </template>
 
@@ -19,11 +17,11 @@ export default {
     return {};
   },
   methods: {
-    homeShow() {
+    showHome() {
       if (this.$route.path === "/") {
         return true;
       } else {
-        return false;
+        document.querySelector(".home__container").style.display = "none";
       }
     },
   },

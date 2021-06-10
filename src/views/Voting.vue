@@ -32,6 +32,7 @@
 
 <script>
 import Search from "../components/Search.vue";
+import axios from "axios";
 
 export default {
   name: "Voting",
@@ -43,16 +44,24 @@ export default {
       random_image: [],
     };
   },
-  mounted() {
-    fetch("https://api.thedogapi.com/v1/images/search", {
-      method: "GET",
-      headers: {
-        "X-Api-Key": "890863bc-4e50-406f-8125-708078cc84d3",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => (this.random_image = data))
-      .catch((err) => console.log(err.message));
+  created() {
+    this.getBreeds();
+  },
+  methods: {
+    async getBreeds() {
+      try {
+        axios.defaults.headers.common["x-api-key"] =
+          "ac1011c3-eae8-4b98-863c-f5db417fcbdd"; // Replace this with your API Key, as it's set to defaults it will be used from now onwards
+
+        let response = await axios.get(
+          "https://api.thedogapi.com/v1/images/search"
+        );
+        this.random_image = response.data;
+        console.log("Random image from TheDogAPI loaded!");
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
 };
 </script>

@@ -4,9 +4,9 @@
       <img class="logo" alt="PetsPaw Logo" src="../assets/logo.png" href="/" />
     </a>
 
-    <h1>Hi intern!</h1>
-    <p class="welcome-line">Welcome to MSI 2021 Front-end test</p>
-    <p class="start-line">Lets start using The Dogs API</p>
+    <h1>Hi!</h1>
+    <p class="welcome-line">Welcome to The Dogs Api App</p>
+    <p class="start-line">Lets start using it</p>
 
     <div class="nav-btn__container">
       <router-link to="/voting" class="voting-link-btn">
