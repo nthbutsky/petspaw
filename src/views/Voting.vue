@@ -95,12 +95,14 @@ export default {
 }
 
 .voting-label {
+  display: flex;
+  flex-wrap: wrap;
   width: 9.125rem;
   height: 2.5rem;
   margin: 1.25rem 1.25rem 1.25rem 0;
   background-color: #ff868e;
   color: #ffffff;
-  padding: 10px;
+  padding: 0.3125rem 1.875rem;
   text-align: center;
   border-radius: 0.625rem;
   letter-spacing: 0.125rem;

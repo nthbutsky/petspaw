@@ -31,7 +31,7 @@ export default {
           "ac1011c3-eae8-4b98-863c-f5db417fcbdd"; // Replace this with your API Key, as it's set to defaults it will be used from now onwards
 
         let response = await axios.get(
-          `https://api.thedogapi.com/v1/breeds/search?q=`
+          `https://api.thedogapi.com/v1/breeds/search?q=` + query
         );
         this.search_result = response.data;
         console.log("Searched breed from TheDogAPI loaded!");
