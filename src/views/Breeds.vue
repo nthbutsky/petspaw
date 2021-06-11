@@ -15,7 +15,10 @@
         </option>
       </select>
       <select class="items-limit" name="" id="">
-        <option value="">Limit:</option>
+        <option value="">Limit: 5</option>
+        <option value="">Limit: 10</option>
+        <option value="">Limit: 15</option>
+        <option value="">Limit: 20</option>
       </select>
       <button
         class="sort-a-z"
@@ -129,7 +132,6 @@ export default {
 .all-breeds {
   width: 14.125rem;
   height: 2.5rem;
-  margin: 0.625rem;
   margin: 1.25rem 0.625rem 0.625rem 0;
   padding: 0 0 0 0.625rem;
   border-radius: 0.625rem;
@@ -137,6 +139,9 @@ export default {
   background: #f8f8f7;
   outline: none;
   transition: border 0.5s;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8c8c8c;
 
   &:hover {
     border: 0.125rem solid #fbe0dc;
@@ -163,6 +168,9 @@ export default {
   background-color: #f8f8f7;
   outline: none;
   transition: border 0.5s;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8c8c8c;
 
   &:hover {
     border: 0.125rem solid #fbe0dc;
@@ -279,19 +287,5 @@ export default {
   grid-column-end: 3;
   grid-row-start: 5;
   grid-row-end: 7;
-}
-
-.card-tall {
-  height: 17.5rem;
-}
-
-.card-wide {
-  width: 25rem;
-}
-
-@media (min-width: 500px) {
-  .app__container {
-    display: none;
-  }
 }
 </style>
