@@ -1,11 +1,6 @@
 <template>
   <div class="home__container" v-if="showHome()">
     <div class="home-background-box" v-bind="toParallax()"></div>
-    <!-- <img
-      class="home-girl-image"
-      src="../assets/girl-and-pet.png"
-      alt="Girl and Dog Image"
-    /> -->
   </div>
 </template>
 
