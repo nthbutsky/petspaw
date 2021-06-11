@@ -29,7 +29,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.home__container {
+  position: relative;
+  width: 42.5rem;
+  height: 52.5rem;
+}
 .home-background-box {
+  position: relative;
   width: 42.5rem;
   height: 52.5rem;
   background-color: #fbe0dc;
@@ -37,11 +43,10 @@ export default {
 }
 
 .home-girl-image {
-  position: relative;
+  position: absolute;
   width: 48.4375rem;
-  height: 64rem;
-  margin-top: -58.3125rem;
-  margin-left: -4.0625rem;
+  margin-top: -850px;
+  margin-left: -72px;
 }
 
 @media (max-width: 1440px) {

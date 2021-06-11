@@ -72,7 +72,7 @@ export default {
   flex-wrap: wrap;
   align-content: flex-start;
   width: 42.5rem;
-  height: 48.875rem;
+  height: 48.25rem;
   background: #ffffff;
   border-radius: 1.25rem;
 }
