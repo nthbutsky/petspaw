@@ -6,24 +6,24 @@ import Gallery from "../views/Gallery.vue";
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home,
   },
   {
     path: "/voting",
     name: "Voting",
-    component: Voting
+    component: Voting,
   },
   {
     path: "/breeds",
     name: "Breeds",
-    component: Breeds
+    component: Breeds,
   },
-    {
+  {
     path: "/gallery",
     name: "Gallery",
-    component: Gallery
+    component: Gallery,
   },
 ];
 

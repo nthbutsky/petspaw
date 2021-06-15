@@ -14,7 +14,7 @@
           {{ breeds.name }}
         </option>
       </select>
-      <select class="items-limit" name="" id="">
+      <select class="items-limit" v-model="selected_limit">
         <option value="">Limit: 5</option>
         <option value="">Limit: 10</option>
         <option value="">Limit: 15</option>
@@ -76,7 +76,6 @@ export default {
         let response = await axios.get("https://api.thedogapi.com/v1/breeds");
         this.all_breeds = response.data;
         console.log("All breeds from TheDogAPI loaded!");
-        console.log(this.all_breeds);
       } catch (err) {
         console.log(err);
       }

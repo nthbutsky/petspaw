@@ -33,7 +33,6 @@ export default {
           50 - (_mouseY - _h) * 0.05
         }%`;
         let x = `${_depth2}, ${_depth1}`;
-        console.log(x);
         document.querySelector(
           ".home-background-box"
         ).style.backgroundPosition = x;

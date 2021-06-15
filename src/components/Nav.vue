@@ -25,8 +25,7 @@
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style scoped lang="scss">
 a {
