@@ -121,7 +121,7 @@ h1 {
   height: 12.375rem;
   background: #ffd280 url("../assets/images-search.png") no-repeat center;
   border: 0.25rem solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   transition: border 0.5s;
   margin-bottom: 0.625rem;
 
@@ -211,39 +211,29 @@ h1 {
   border: 0.25rem solid #fbe0dc;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 90rem) {
   .nav-btn__container {
     flex-wrap: wrap;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 28.75rem) {
   .nav-btn__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .logo,
-  h1,
-  p {
-    margin-left: 7.5rem;
   }
 
   a {
     margin-bottom: 0.625rem;
   }
 
-  h1 {
-    font-size: 2.25rem;
+  .voting-icon,
+  .breeds-icon,
+  .gallery-icon {
+    display: none;
   }
 
-  .welcome-line {
-    font-size: 1rem;
-  }
-
-  .start-line {
-    margin-top: 2.125rem;
-    font-size: 1rem;
+  .nav-btn {
+    width: 100%;
   }
 }
 </style>

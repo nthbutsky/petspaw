@@ -327,11 +327,11 @@ export default {
     height: 100%;
     background: rgba(255, 134, 142, 0.6);
     border-radius: 1.25rem;
-    /* mix-blend-mode: color; */
   }
   &:hover:after {
     content: "";
-    position: absolute;
+    color: #ff868e;
+    position: relative;
     justify-content: center;
     width: 40px;
     height: 40px;

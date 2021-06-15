@@ -21,7 +21,6 @@ export default {
     },
     toParallax() {
       document.addEventListener("mousemove", parallax);
-      const element = document.querySelector(".home-background-box");
       function parallax(e) {
         let _w = window.innerWidth / 2;
         let _h = window.innerHeight / 2;
@@ -31,11 +30,13 @@ export default {
           50 - (_mouseY - _h) * 0.01
         }%`;
         let _depth2 = `${50 - (_mouseX - _w) * 0.05}% ${
-          50 - (_mouseY - _h) * 0.02
+          50 - (_mouseY - _h) * 0.05
         }%`;
         let x = `${_depth2}, ${_depth1}`;
         console.log(x);
-        element.style.backgroundPosition = x;
+        document.querySelector(
+          ".home-background-box"
+        ).style.backgroundPosition = x;
       }
     },
   },
@@ -45,16 +46,16 @@ export default {
 <style scoped lang="scss">
 .home__container {
   position: relative;
-  width: 680px;
-  height: 840px;
+  width: 42.5rem;
+  height: 52.5rem;
 }
 
 .home-background-box {
   position: absolute;
   top: 0;
-  left: -100px;
-  width: 850px;
-  height: 900px;
+  left: -6.25rem;
+  width: 53.125rem;
+  height: 56.25rem;
   background-image: url("../assets/girl-and-pet.png"),
     url("../assets/girl-and-pet-background.png");
   background-repeat: no-repeat;
@@ -62,7 +63,7 @@ export default {
   background-position: 50% 50%;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 90rem) {
   .home__container {
     display: none;
   }

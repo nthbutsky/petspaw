@@ -100,7 +100,7 @@ export default {
   margin: 1.25rem 1.25rem 1.25rem 0;
   background-color: #ff868e;
   color: #ffffff;
-  padding: 10px;
+  padding: 0.625rem;
   text-align: center;
   border-radius: 0.625rem;
   letter-spacing: 0.125rem;
@@ -175,7 +175,7 @@ export default {
 }
 
 .log {
-  margin: 10px 20px;
+  margin: 0.625rem 1.25rem;
   border-radius: 0.625rem;
   width: 40rem;
   height: 3.75rem;

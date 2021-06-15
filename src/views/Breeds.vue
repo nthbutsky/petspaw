@@ -247,8 +247,11 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-  &:hover:after {
+  &:hover:before {
     content: "";
     position: absolute;
     left: 0;
@@ -258,6 +261,16 @@ export default {
     background: rgba(255, 134, 142, 0.6);
     border-radius: 1.25rem;
     /* mix-blend-mode: color; */
+  }
+  &:hover:after {
+    content: "";
+    position: relative;
+    width: 100%;
+    height: 34px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 10px;
+    transition: background 0.1s;
   }
 }
 

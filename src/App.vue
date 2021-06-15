@@ -30,7 +30,7 @@ export default {
   font-family: "Jost", sans-serif;
 
   background: #f8f8f7;
-  padding-top: 1.875rem;
+  padding: 1.875rem 1.25rem;
   height: 100vh;
 }
 
@@ -39,12 +39,5 @@ export default {
   flex-direction: row;
   justify-content: center;
   gap: 8.5625rem;
-}
-
-@media (max-width: 500px) {
-  #app {
-    overflow: scroll;
-    scrollbar-width: none;
-  }
 }
 </style>
